@@ -16,7 +16,7 @@ tau1=0;
 tau2=0;
 tau3=0;
 
-tf=10; % simulation end time
+tf=; % simulation end time
 
 %% Generate path
 radius = 0.1;
@@ -70,17 +70,18 @@ theta3 = theta(3);
 %     0, 0, 741.85
 % ];
 Ka = 1;
-kv = 0;
+% kv = 100000;
+kv = 160;
 Kv = [
     kv, 0, 0;
     0, kv, 0;
-    0, 0, kv;
+    0, 0, -kv;
 ];
-kp = 100;
+kp = 10000;
 Kp = [
     kp, 0, 0;
     0, kp, 0;
-    0, 0, kp
+    0, 0, -kp;
 ];
 
 %% Forward Kinematics
@@ -95,5 +96,9 @@ Kp = [
 %     la * cos(theta1) + lc * cos(theta2 + theta3), lc * cos(theta2 + theta3), lc * cos(theta2 + theta3);
 % ];
 % J_inv = inv(J);
+
+total = xed + yed;
+% disp(total)
+% disp(max(total))
 
 % plot(xed,yed)

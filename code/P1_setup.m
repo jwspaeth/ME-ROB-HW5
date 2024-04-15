@@ -16,7 +16,7 @@ tau1=0;
 tau2=0;
 tau3=0;
 
-tf=10; % simulation end time
+tf=5; % simulation end time
 
 %% Generate path
 radius = 0.1;
@@ -69,14 +69,15 @@ theta3 = theta(3);
 %     0, 2000, 0;
 %     0, 0, 741.85
 % ];
-Ka = 0;
-kv = 100000;
+Ka = 1;
+% kv = 100000;
+kv = 160;
 Kv = [
     kv, 0, 0;
     0, kv, 0;
     0, 0, -kv;
 ];
-kp = 100;
+kp = 8000;
 Kp = [
     kp, 0, 0;
     0, kp, 0;
