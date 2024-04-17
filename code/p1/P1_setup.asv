@@ -16,14 +16,14 @@ tau1=0;
 tau2=0;
 tau3=0;
 
-tf=5; % simulation end time
+tf=3; % simulation end time
 
 %% Generate path
 radius = 0.1;
 origin1 = [0.1, 0];
 origin2 = [0.3, 0];
 origin3 = [0.5, 0];
-samples_per_segment = 100;
+samples_per_segment = 1000;
 path = generate_p1_path(radius, origin1, origin2, origin3, samples_per_segment);
 % path = generate_test_path(radius, origin1, samples_per_segment);
 path_size = size(path);
@@ -54,35 +54,18 @@ theta3 = theta(3);
 
 %% Set gains
 % Ka = 1;
-% % kv = 16384;
-% kv = 2000000;
-% Kv = [
-%     kv, 0, 0;
-%     0, kv, 0;
-%     0, 0, 100;
-% ];
-% % kp = 256;
-% kp = 0;
-% kz = 0; % 17;
-% Kp = [
-%     2000, 0, 0;
-%     0, 2000, 0;
-%     0, 0, 741.85
-% ];
-Ka = 1;
-% kv = 100000;
-kv = 160;
-Kv = [
-    kv, 0, 0;
-    0, kv, 0;
-    0, 0, -kv;
-];
-kp = 8000;
-Kp = [
-    kp, 0, 0;
-    0, kp, 0;
-    0, 0, -kp;
-];
+% Kv = 160;
+% Kp = 8000;
+
+% 3 sec gains
+% z always -1
+% Ka = 1;
+% Kv = 160;
+% Kp = 22000;
+% Ki = 20000;
+
+% ka = 0;
+% kv = 130
 
 %% Forward Kinematics
 % x = cos(theta1) * (la * cos(theta2) + lc * cos(theta2 + theta3))
